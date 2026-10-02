@@ -1,0 +1,17 @@
+# EC2 private keys must never be committed: only the placeholder note is tracked.
+keys/*
+!keys/YOUR-EC2-KEYS-HERE.txt
+*.pem
+*.ppk
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+build/
+dist/
+.venv/
+venv/
+.ruff_cache/
+.mypy_cache/
+.pytest_cache/

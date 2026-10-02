@@ -1,0 +1,9 @@
+Put your EC2 key pair private keys (.pem) in this directory.
+
+ssmer uses them to decrypt a Windows instance's Administrator password after a
+port forward starts. Subdirectories are fine (one per customer or account, say);
+a file named after an instance's key pair, e.g. my-key.pem for key pair
+"my-key", is found at any depth and preselected.
+
+Everything in here except this note is ignored by git. To keep keys elsewhere,
+run ssmer with --keys-dir DIR or set SSMER_KEYS_DIR.

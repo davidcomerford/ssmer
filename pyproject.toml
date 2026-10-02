@@ -1,0 +1,44 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "ssmer"
+dynamic = ["version"]
+description = "Terminal UI for EC2 shell sessions and port forwarding through AWS Systems Manager"
+readme = "README.md"
+license = { file = "LICENSE" }
+authors = [{ name = "David Comerford" }]
+requires-python = ">=3.10"
+keywords = ["aws", "ec2", "ssm", "session-manager", "port-forwarding", "tui", "curses"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Environment :: Console :: Curses",
+    "Intended Audience :: System Administrators",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: POSIX :: Linux",
+    "Operating System :: MacOS",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3 :: Only",
+    "Topic :: System :: Systems Administration",
+]
+
+[project.scripts]
+ssmer = "ssmer:main"
+
+[tool.setuptools]
+py-modules = ["ssmer"]
+
+[tool.setuptools.dynamic]
+version = { attr = "ssmer.__version__" }
+
+[tool.ruff]
+line-length = 120
+target-version = "py310"
+
+[tool.ruff.lint]
+select = ["E", "F", "W", "B", "UP"]
+# Long lines are allowed where splitting would hurt readability.  B023 flags
+# the redraw lambdas in the dialog loops, which are called before the loop
+# variables change.
+ignore = ["E501", "B023"]
